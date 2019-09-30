@@ -7,10 +7,18 @@ import {ProfilePageService} from '../profile-page.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  profilePage:any;
+  repos:any;
 
   constructor(private profilePageService:ProfilePageService) {
-    this.profilePageService.getProfileInfo().subscribe(profile => {
-      console.log(profile  );
+    this.profilePageService.getProfileInfo().subscribe(profilePage => {
+      console.log(profilePage);
+      this.profilePage=profilePage;
+    });
+    this.profilePageService.getProfileRepos().subscribe(repos => {
+      console.log(repos);
+      this.repos=repos;
+
     });
    }
 
