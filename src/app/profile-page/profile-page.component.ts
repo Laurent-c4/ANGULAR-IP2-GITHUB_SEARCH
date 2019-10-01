@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfilePageService} from '../profile-page.service';
+import { UserInfo } from '../user-info';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,25 +8,22 @@ import {ProfilePageService} from '../profile-page.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  profilePage:any;
-  repos:any;
+  repoInfo:any;
   username:string;
+  userInfo:UserInfo
 
   constructor(private profilePageService:ProfilePageService) {
    }
 
    findProfile() {
-     this.profilePageService.updateProfile(this.username)
-    this.profilePageService.getProfileInfo().subscribe(profilePage => {
-      console.log(profilePage);
-      this.profilePage=profilePage;
-    });
-    this.profilePageService.getProfileRepos().subscribe(repos => {
-      console.log(repos);
-      this.repos=repos;
-
-    });
-     this.profilePageService.updateProfile(this.username);
+    this.profilePageService.updateProfile(this.username)
+    this.userInfo=this.profilePageService.userInfo
+    this.repoInfo=this.profilePageService.repoInfo
+    this.profilePageService.getProfileInfo()
+    this.profilePageService.getProfileRepos()
+    this.profilePageService.updateProfile(this.username)
+    
+    // this.profilePageService.updateProfile(this.username)
    }
 
   ngOnInit() {
