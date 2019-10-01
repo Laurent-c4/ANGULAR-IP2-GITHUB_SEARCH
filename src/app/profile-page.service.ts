@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,8 +10,7 @@ import {map} from 'rxjs/operators';
 export class ProfilePageService {
 
   private username:string;
-  private clientid="6e827bdb9bca7901898b";
-  private clientsecret="f99b3042a2226995e40f64a29b0be28998edc948";
+  
 
   constructor(private http:HttpClient) {
     console.log("Serrvice Running");
@@ -18,10 +18,10 @@ export class ProfilePageService {
    }
 
    getProfileInfo() {
-     return this.http.get("https://api.github.com/users/"+ this.username + "?client_id="+this.clientid + "&client_secret=" + this.clientsecret)
+     return this.http.get("https://api.github.com/users/"+ this.username + "?client_id="+environment.clientid + "&client_secret=" + environment.clientsecret)
    }
    getProfileRepos() {
-    return this.http.get("https://api.github.com/users/"+ this.username + "/repos?client_id="+this.clientid + "&client_secret=" + this.clientsecret)
+    return this.http.get("https://api.github.com/users/"+ this.username + "/repos?client_id="+environment.clientid + "&client_secret=" + environment.clientsecret)
    }
    updateProfile(username:string) {
        this.username=username;
