@@ -1,0 +1,8 @@
+.card-edit {
+    text-align: center;
+}
+
+.scroll {
+    max-height: 470px;
+    overflow-y: auto;
+}

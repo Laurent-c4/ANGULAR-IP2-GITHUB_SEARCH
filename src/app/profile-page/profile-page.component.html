@@ -1,24 +1,47 @@
-<div *ngIf="profilePage">
-    <div class="panel panel-default">
-        <div class = "panel-heading">
-            {{profilePage.login}}
-        </div>
-        <div class= "panel-body">
-                <div>
-                    <img src = "{{profilePage.avatar_url}}" class="img-circle img-responsive" alt="Profile Picture">
-                </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class = "panel-heading">
-            <h3 class= "panel-title">Repositories</h3>
-        </div>
-        <div class = "panel-body" *ngFor="let repo of repos">
-            <p>
-                <a href="{{repo.html_url}}">{{repo.name}}</a>
-            </p>
+<h1>GITHUB SEARCH</h1>
+<form action="">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="username" name="username"
+      (keyup)="findProfile()">
+  </div>
+</form>
 
-        </div>
+<div *ngIf="profilePage">
+  <div class="card card-edit">
+    <div class="card-header">
+      <h3>{{profilePage.login}}</h3>
     </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+          <div class = "card-body">
+            <img src="{{profilePage.avatar_url}}" class="img-circle img-responsive" alt="Profile Picture">
+          </div>
+          <div class="card-footer">
+            
+          </div>
+        </div>
+        </div>
+        <div class="col-md-6 scroll">
+          <div class="card">
+            <div class="card-header">
+              <h3>Repositories</h3>
+            </div>
+            <div class="card-body" *ngFor="let repo of repos">
+              <p>
+                <a href="{{repo.html_url}}">{{repo.name}}</a>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+
+    </div>
+  </div>
+
 
 </div>
