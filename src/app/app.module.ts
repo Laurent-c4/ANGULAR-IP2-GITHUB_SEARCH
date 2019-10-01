@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ProfilePageService } from './profile-page.service';
+import { DatepipePipe } from './datepipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    DatepipePipe
   ],
   imports: [
     BrowserModule,

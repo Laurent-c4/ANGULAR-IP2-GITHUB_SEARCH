@@ -6,7 +6,7 @@
 This is a website app for rsearching and viewing github repositoriese. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Website Overview
-![Image description](src/assets/screenshot.png)
+![Image description](src/app/assets/screenshot.png)
 
 #### Visit website for more interactivity https://laurent-c4.github.io/ANGULAR-IP2-GITHUB_SEARCH/
 
